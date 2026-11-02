@@ -1,4 +1,6 @@
-# Verification status — 1 November 2026
+# Archived verification status — 1 November 2026
+
+This is the original pre-import snapshot. For a later source commit, consult its [Android beta checks run](https://github.com/Toolstack7462/shelf-value-android/actions/workflows/android-ci.yml) and artifacts.
 
 Only the indicated check is covered by each status; all Android and CI claims require actual run evidence.
 

@@ -1,36 +1,26 @@
-# Shelf Value — independent Android beta source
+# Shelf Value Android beta
 
-**Status: native source and CI workflow prepared; no Android build or APK has succeeded.** This archive is not an installable beta. Name and package `com.shelfvalue.beta` are provisional and have not been cleared for trademark or Play availability. Do not publish the app without further validation and owner authorisation.
+Shelf Value compares two grocery offers at the same unit price, in English or Urdu. Enter the total package price, quantity per pack, unit and pack count. It shows the cheaper offer, both normalized prices, the absolute difference and the percentage saved. The comparison uses exact decimal inputs before rounding for display. The editable currency label defaults to `Rs`.
 
-The app uses Kotlin/Jetpack Compose for UI and an original Java exact-arithmetic engine. It compares two products using price, quantity, units and pack count; supports g/kg, ml/litre, item, tie, difference, percentage and reset. Currency is a user-editable label, initially `Rs`; it does not convert exchange rates or retrieve prices. English and draft Urdu resources are included, selected by Android device language. No native-speaker translation review, RTL or TalkBack test was performed. Light/dark colour schemes, original vector icon and splash are implemented in source only; UI/device rendering has not been verified. No Internet permission or third-party analytics is declared in the source manifest; merged APK permissions remain unverified.
+## Install the debug APK
 
-## Tested calculation core
+1. Open [Android beta checks](https://github.com/Toolstack7462/shelf-value-android/actions/workflows/android-ci.yml) and choose the run for the desired commit.
+2. Download `shelf-value-debug-<commit>`, extract `app-debug.apk` and use `adb install -r app-debug.apk` on an Android 7.0 (API 24) or later test device.
+3. The `android-reports` artifact contains the APK checksum, signing certificate, package information, permissions, lint and unit-test results. The `emulator-reports` artifact from a successful emulator job contains installation checks, test output and screenshots. Match the commit and SHA-256 before distributing a beta.
 
-From this directory run `./tests/run-jvm.sh` using a JDK 17 installation. In this environment `java -m jdk.compiler/com.sun.tools.javac.Main` compiled the source and the standalone test completed **25 assertion checks**. These are Java core checks, not Kotlin JUnit, Android, UI, emulator, device or build tests. CI also contains Kotlin JUnit tests that have not run.
+## Build and test
 
-## Build locally with Android Studio
+The project uses Kotlin and Jetpack Compose for its interface and a Java decimal comparison engine. It targets API 36 and uses JDK 17, AGP 8.10.1, Gradle 8.11.1, Android SDK Platform 36 and Build Tools 35.0.0. Open the repository root in Android Studio or run:
 
-1. Install Android Studio and a JDK 17, Android SDK Platform 36 and Build Tools 35.0.0, with internet access to Google Maven, Maven Central and services.gradle.org.
-2. Open this folder as a Gradle project and allow Gradle sync. Do not modify the original PriceGrab repo. The configured combination is AGP 8.10.1, Gradle 8.11.1 and JDK 17; these versions have not been built here.
-3. Run `./gradlew :app:lintDebug :app:testDebugUnitTest :app:assembleDebug` on macOS/Linux, or `gradlew.bat :app:lintDebug :app:testDebugUnitTest :app:assembleDebug` in Windows PowerShell.
-4. Only if it succeeds, the debug APK should appear at `app/build/outputs/apk/debug/app-debug.apk`. Verify package ID, target and permissions with Android SDK build tools, install only on a test device and run the three shopper-study scenarios. See docs/STATUS.md.
-5. A release bundle requires separate signing and Play setup. No release signing key, keystore, Play account, or production deployment is included.
-
-## GitHub Actions — separate private repository
-
-Create an **empty private repository** in the intended GitHub account and grant the connected GitHub app access to that repository. Add the extracted project files to its root, including the normally hidden `.github/workflows/android-ci.yml` and Gradle wrapper. A push or manual workflow dispatch is intended to run the JVM harness, Android lint, Kotlin/JUnit tests, assemble a debug APK, inspect its identity/permissions, upload it as an artifact, and run an emulator job. This workflow has not run and may require fixes. It never signs a release or publishes to Google Play. Do not copy release credentials into the repository. Third-party actions are version-tagged; review and pin to verified immutable SHAs before relying on CI for sensitive release work.
-
-**Git example**, replacing the URL and `main` with your own repository/default branch:
+```sh
+./tests/run-jvm.sh
+./gradlew :app:assembleDebug :app:testDebugUnitTest :app:lintDebug
 ```
-git init
-git add .
-git commit -m "Initial Android beta source"
-git branch -M main
-git remote add origin https://github.com/YOUR_ACCOUNT/YOUR_PRIVATE_REPO.git
-git push -u origin main
-```
-Use this only from the extracted **ShelfValue** project folder, not the upstream PriceGrab checkout or an existing repository. Then open GitHub Actions and inspect the run logs; a successful APK is downloadable from that run's Artifacts section. A private account's Actions quota and policies may affect availability/cost.
 
-## Study
+On Windows, use `gradlew.bat` for the Gradle commands. The debug APK is written to `app/build/outputs/apk/debug/app-debug.apk`. CI installs the same debug APK on an API 35 emulator and runs instrumented tests with English at the default text size and Urdu at twice the default size.
 
-`docs/study/Previous_Browser_Study_Kit.md` and the blank workbook are included for continuity; replace the kit's browser-specific setup with the native checklist in `docs/study/NATIVE_CHECKLIST.md` only after an APK is built and smoke-tested. No users have been recruited or studied.
+App ID: `com.shelfvalue.beta`. Any APK in the debug workflow uses a debug key. Separate builds may use different debug certificates. The app reads prices supplied by the shopper. Urdu copy is still pending native-speaker review. Real-device testing and shopper research are tracked separately from CI.
+
+## Study and provenance
+
+Use [the native checklist](docs/study/NATIVE_CHECKLIST.md) on a test device before recruiting shoppers. [Third-party notices](THIRD_PARTY_NOTICES.md) describe the wrapper and reference material. [The initial source handoff](docs/STATUS.md) records the checks that were possible before the first GitHub Actions run.
