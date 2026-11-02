@@ -1,0 +1,18 @@
+<resources>
+<string name="app_name">Shelf Value Beta</string>
+<string name="subtitle">Compare the price for the same amount</string>
+<string name="currency">Currency label</string>
+<string name="product_a">Product A</string><string name="product_b">Product B</string>
+<string name="price">Total price for all packs</string><string name="quantity">Quantity per pack</string><string name="packs">Number of packs</string><string name="unit">Unit</string>
+<string name="gram">g</string><string name="kilogram">kg</string><string name="millilitre">ml</string><string name="litre">litre</string><string name="item">item</string>
+<string name="compare">Compare</string><string name="reset">Reset</string>
+<string name="prompt">Enter both products to compare.</string>
+<string name="invalid">Enter valid numbers: price ≥ 0, quantity &gt; 0, and a whole pack count of 1–999999. Use a dot for decimals.</string>
+<string name="incompatible">Choose units of the same type: weight, volume, or items.</string>
+<string name="winner_a">Product A is cheaper per unit</string><string name="winner_b">Product B is cheaper per unit</string><string name="tie">Same price per unit</string>
+<string name="prices">A: %1$s %2$s / %3$s\nB: %1$s %4$s / %3$s</string>
+<string name="savings">Difference: %1$s %2$s per %3$s (%4$s%% less than the higher unit price).</string>
+<string name="note">Enter prices in the same currency. Values are rounded for display; the comparison uses exact input.</string>
+<string name="near_tie">The difference is smaller than the displayed rounding. The winner is based on the exact entered values.</string>
+<string name="beta">Beta for testing · prices are entered by you</string>
+</resources>

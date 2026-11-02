@@ -1,0 +1,7 @@
+# Native beta facilitator checklist — do not use until Android checks pass
+
+1. Obtain the verified debug APK from the independent project CI; record commit, CI URL, package ID, OS and device. Verify package/permissions and install on an explicitly consenting tester's device. Debug APKs are not Play releases; protect signing identity and do not ask testers to disable security permanently.
+2. Open the app, test both light and dark system themes, check large font, and confirm reset. Switch phone language to Urdu for a separate RTL/translation check; a native speaker must assess meaning and numerals. Record outcomes without collecting personal financial data.
+3. Run the three task cards in Previous_Browser_Study_Kit.md, but use the Android beta in place of its browser tool. Ask the participant to enter the total for all packs. Compare with their regular calculator, counterbalance order, record assistance and timing in the workbook. Physical-device and emulator outcomes must be kept separate.
+4. Stop on any wrong result, loss of accessibility or misleading presentation. Document device, entered values, expected/observed result and application build. Never interpret 25 JVM assertions as physical-device, UI, translation, or market-validation results.
+5. Ask permission for later-trip follow-up. Do not invent data or send unsolicited recruitment messages. User-testing readiness remains blocked until the APK, basic offline behaviour, installation and device smoke tests are verified.

@@ -1,0 +1,18 @@
+<resources>
+<string name="app_name">شیلف ویلیو بیٹا</string>
+<string name="subtitle">ایک ہی مقدار کی قیمت کا موازنہ کریں</string>
+<string name="currency">کرنسی کا نام</string>
+<string name="product_a">مصنوعہ A</string><string name="product_b">مصنوعہ B</string>
+<string name="price">تمام پیکٹوں کی کل قیمت</string><string name="quantity">فی پیکٹ مقدار</string><string name="packs">پیکٹوں کی تعداد</string><string name="unit">اکائی</string>
+<string name="gram">گرام</string><string name="kilogram">کلوگرام</string><string name="millilitre">ملی لیٹر</string><string name="litre">لیٹر</string><string name="item">عدد</string>
+<string name="compare">موازنہ کریں</string><string name="reset">صاف کریں</string>
+<string name="prompt">موازنہ کرنے کے لیے دونوں مصنوعات درج کریں۔</string>
+<string name="invalid">درست اعداد درج کریں: قیمت صفر یا زیادہ، مقدار صفر سے زیادہ اور پیکٹوں کی تعداد 1 تا 999999 ہو۔ اعشاریے کے لیے نقطہ استعمال کریں۔</string>
+<string name="incompatible">ایک ہی قسم کی اکائیاں منتخب کریں: وزن، حجم یا عدد۔</string>
+<string name="winner_a">فی اکائی مصنوعہ A سستا ہے</string><string name="winner_b">فی اکائی مصنوعہ B سستا ہے</string><string name="tie">فی اکائی قیمت برابر ہے</string>
+<string name="prices">A: %1$s %2$s / %3$s\nB: %1$s %4$s / %3$s</string>
+<string name="savings">فرق: %1$s %2$s فی %3$s (زیادہ قیمت کے مقابلے میں %4$s%% کم)۔</string>
+<string name="note">دونوں قیمتیں ایک ہی کرنسی میں درج کریں۔ ظاہر شدہ اعداد گول کیے گئے ہیں؛ موازنہ اصل درج کردہ اعداد پر ہے۔</string>
+<string name="near_tie">فرق اتنا کم ہے کہ گول کیے گئے اعداد میں ظاہر نہیں ہوتا۔ نتیجہ اصل درج کردہ اعداد پر مبنی ہے۔</string>
+<string name="beta">آزمائشی ورژن · قیمتیں آپ درج کرتے ہیں</string>
+</resources>
